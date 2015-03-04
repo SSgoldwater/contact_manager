@@ -65,8 +65,8 @@ describe 'the person view', type: :feature do
   describe 'email addresses' do
     before(:each) do
       Person.create(first_name: 'John', last_name: 'Doe')
-      person.email_addresses.create(address: "hi@abc.com", person_id: 1)
-      person.email_addresses.create(address: 'bye@xyz.com', person_id: 2)
+      person.email_addresses.create(address: "hi@abc.com", contact_id: 1, contact_type: 'Person')
+      person.email_addresses.create(address: 'bye@xyz.com', contact_id: 2, contact_type: 'Person')
       visit person_path(person)
     end
 
@@ -110,7 +110,7 @@ describe 'the person view', type: :feature do
       end
     end
 
-    it 'deletes a phone number' do
+    it 'deletes an email address' do
       first(:link, 'delete').click
       expect(current_path).to eq(person_path(person))
     end
