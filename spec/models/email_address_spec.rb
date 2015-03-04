@@ -17,4 +17,9 @@ RSpec.describe EmailAddress, type: :model do
     expect(email_address).to be_invalid
   end
 
+  it 'must have a reference to a contact' do
+    phone_number.contact_id = nil
+    expect(phone_number).not_to be_valid
+  end
+
 end
