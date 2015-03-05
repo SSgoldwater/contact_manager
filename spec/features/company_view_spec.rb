@@ -113,10 +113,8 @@ describe 'the company view', type: :feature do
     end
 
     it 'deletes an email address' do
-      within('#emails') do
         first(:link, 'delete').click
         expect(current_path).to eq(company_path(company))
-      end
     end
   end
 
